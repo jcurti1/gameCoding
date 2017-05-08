@@ -1,5 +1,13 @@
 # Creating a Tic Tac Toe Game
 
+#global constants
+X = "X"
+O = "O"
+EMPTY = " "
+TIE = "TIE"
+NUM_SQUARE = 9
+
+
 #Instructions function for Tic Tac Toe Game
 def instructions():
     """Displaying the games instructions"""
@@ -15,15 +23,27 @@ def instructions():
           "6 | 7 | 8\n\n"
           "Test yourself as the game is about to begin.\n")
 
-def testOne():
-    print(
-        """
-        Here is a basic test.
-        To see if the endline.
-        Is working right.
-        BOOM YAY!!!
-        """
-    )
+def ask_yes_no(question):
+    """Ask a yes or no question."""
+    response = None
+    while response not in("y", "n"):
+        response = raw_input(question)
+        return response
+
+def ask_number(question,low, high):
+    """Ask for a number within range"""
+    response = None
+    while response not in range(low,high):
+        response = int(input(question))
+    return response
+
+def new_board():
+    """Create new game board."""
+    board = []
+    for square in range(NUM_SQUARE):
+        board.append(EMPTY)
+    return board
+
 
 #main start code
 instructions()
